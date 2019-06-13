@@ -119,12 +119,12 @@
 				return 'https://cors-anywhere.herokuapp.com/' + url;
 			}
 			function pob() {
-				var poe_nm = $('#poe_nm').val();
-				var poe_ch = $('#poe_ch').val();
-				if(!poe_nm.trim() || !poe_ch.trim()) return;
-
 				pob_timeout = clearTimeout(pob_timeout);
 				pob_timeout = setTimeout(function(){
+					var poe_nm = $('#poe_nm').val();
+					var poe_ch = $('#poe_ch').val();
+					if(!poe_nm.trim() || !poe_ch.trim()) return;
+					
 					var req = $.post(cors('http://poe-profile.info/api/getPoBCode'), { account: poe_nm, char: poe_ch });
 					req.done(function(data) {
 						$('#pob').val(data);
