@@ -1,8 +1,145 @@
-<!DOCTYPE HTML>
-<html>
+﻿<!DOCTYPE html>
+<html lang="ko-KR" xml:lang="ko-KR">
   <head>
+  	<title>Path of Exile | 프로필</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+		<meta name="viewport" content="width=device-width, initial-scale=1" >
+		<meta property="og:image" content="https://web.poecdn.com/image/favicon/ogimage.png?v=1" >
+		<meta property="og:title" content="Path of Exile | Daum 게임" >
+		<meta property="og:site_name" content="Path of Exile" >
+		<meta property="og:type" content="website" >
+		<meta property="og:keywords" content="path of exile,action rpg,online rpg game,free rpg game" >
+		<meta property="og:description" content="Path of Exile is a free online-only action RPG under development by Grinding Gear Games in New Zealand." >
+		<meta name="keywords" content="path of exile,action rpg,online rpg game,free rpg game" >
+		<meta name="description" content="Path of Exile is a free online-only action RPG under development by Grinding Gear Games in New Zealand." >
+		<meta name="msapplication-TileColor" content="#00aba9" >
+		<meta name="msapplication-config" content="https://web.poecdn.com/image/favicon/browserconfig.xml?v=1" >
+		<meta name="theme-color" content="#ffffff" >
+		<meta property="og:locale" content="ko_KR" >
+		<link href="https://web.poecdn.com/image/favicon/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180" >
+		<link href="https://web.poecdn.com/image/favicon/favicon-32x32.png?v=1" rel="icon" type="image/png" sizes="32x32" >
+		<link href="https://web.poecdn.com/image/favicon/favicon-16x16.png?v=1" rel="icon" type="image/png" sizes="16x16" >
+		<link href="https://web.poecdn.com/image/favicon/site.webmanifest?v=2" rel="manifest" >
+		<link href="https://web.poecdn.com/image/favicon/safari-pinned-tab.svg?v=1" rel="mask-icon" >
+		<link href="https://web.poecdn.com/image/favicon/favicon.ico?v=1" rel="shortcut icon" >
+		<link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+		<style>
+			body {
+				color: #A38D6D;
+				background-color: #000;
+				background-image: url('./assets/background.jpg');
+				background-size: contain;
+				background-repeat: no-repeat;
+				padding-bottom: 15px;
+			}
+			a { text-decoration: none; color: #A38D6D; font-style: italic; }
+			textarea { resize: none; }
+
+			.container {
+				margin-left: auto;
+			  margin-right: auto;
+			  display: table;
+			  max-width: 640px;
+			}
+			.container > .header {
+				text-align: center;
+			}
+			.container > .header > .logo {
+				width: 40%; min-width: 180px; height: auto;
+			}
+			.container > .content {
+				margin: 15px 2% 0 2%;
+				background-image: url('./assets/overlay.png');
+				padding: 15px 15px 50px 15px;
+			}
+			.container > .footer {
+				margin-top: -4.15%;
+			}
+			.container > .footer > img {
+				width: 100%; height: auto;
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
   </head>
   <body>
-    해당 사이트는 POE 관련 문의를 더 쉽게 하기 위한 짧은 주소를 제공합니다. <br />
+  	<div class="container">
+  		<div class="header"><img src="./assets/logo.png" class="logo"></div>
+	    <div class="content">
+
+	    	<div class="form-control mb1 p2 flex flex-column border rounded">
+	    		<div class="flex flex-column">
+	    			<span class="h4 bold mb1 block">POE계정명을 입력하세요.</span>
+	    		</div>
+	    		<div class="flex flex-column">
+	    			<input id="poe_nm" class="p1 rounded border-none" type="text" placeholder="*공홈 좌측 상단 표시 이름" />
+	    		</div>
+	    	</div>
+	    	<div class="form-control mb1 p2 flex flex-column border rounded">
+	    		<div class="flex flex-column">
+	    			<span class="h4 bold mb1 block">POE캐릭터명을 입력하세요. (옵션)</span>
+	    		</div>
+	    		<div class="flex flex-column">
+	    			<input id="poe_ch" class="p1 rounded border-none" type="text" placeholder="*게임 내 표시 이름" />
+	    		</div>
+	    	</div>
+
+	    	<div class="form-control mb1 p2 flex flex-column pg-poe">
+	    		<div class="flex flex-column">
+	    			<span class="h5 bold mb1 block">POE프로필 주소</span>
+	    		</div>
+	    		<div class="flex flex-column mb1">
+	    			<input id="profile_ko" class="p1 h5 rounded border-none" type="text" readonly value="POE계정명을 입력하세요">
+	    		</div>
+	    		<div class="flex flex-column">
+	    			<input id="profile_en" class="p1 h5 rounded border-none" type="text" readonly value="POE계정명을 입력하세요">
+	    		</div>
+	    	</div>
+	    	<div class="form-control p2 flex flex-column pg-poe">
+	    		<div class="flex flex-column">
+	    			<span class="h5 bold mb1 block">POB프로필 코드</span>
+	    		</div>
+	    		<div class="flex flex-column">
+	    			<textarea id="pob" class="p1 h5 rounded border-none" rows="30" readonly value="POE계정명을 입력하세요"></textarea>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="footer"><img src="./assets/footer.png" class="img-responsive"></div>
+  	</div>
+  	<div class="copyright h5 center">
+  		&copy; <a href="mailto:cw4196@naver.com" target="_blank">벨라루즈 (스탠다드)</a>, 2019.
+  		powered by
+  		<a href="http://www.grindinggear.com/" target="_blank">GGG</a>,
+  		<a href="https://www.kakaogames.com/" target="_blank">KakaoGames</a>,
+  	</div>
+    
+		<script>
+			var pob_timeout = 0;
+			function cors(url) {
+				return 'https://cors-anywhere.herokuapp.com/' + url;
+			}
+			function pob() {
+				var poe_nm = $('#poe_nm').val();
+				var poe_ch = $('#poe_ch').val();
+				if(!poe_nm.trim() || !poe_ch.trim()) return;
+
+				pob_timeout = clearTimeout(pob_timeout);
+				pob_timeout = setTimeout(function(){
+					var req = $.post(cors('http://poe-profile.info/api/getPoBCode'), { account: poe_nm, char: poe_ch });
+					req.done(function(data) {
+						$('#pob').val(data);
+					})
+				}, 3000);
+			}
+			function update() {
+				var poe_nm = $('#poe_nm').val();
+				var poe_ch = $('#poe_ch').val();
+				$('#profile_en').val('https://exile.site/en/' + poe_nm + '/' + poe_ch);
+				$('#profile_ko').val('https://exile.site/ko/' + poe_nm + '/' + poe_ch);
+				pob();
+			}
+			$('#poe_nm').on('change keyup', update)
+			$('#poe_ch').on('change keyup', update)
+		</script>
   </body>
 </html>
