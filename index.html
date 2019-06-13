@@ -86,7 +86,9 @@
 
 	    	<div class="form-control mb1 p2 flex flex-column pg-poe">
 	    		<div class="flex flex-column">
-	    			<span class="h5 bold mb1 block">POE프로필 주소</span>
+	    			<span class="h5 bold mb1 block">POE프로필 주소</span><br/>
+	    			<small>공식홈페이지 > POE계정명클릭 > 개인정보 설정 > 프로필 비공개 및 캐릭터 탭 숨기기 해제 필수!</small><br/>
+	    			<small>개인정보 주소: <a id="poe_privacy" target="_blank" href="#"></a></small>
 	    		</div>
 	    		<div class="flex flex-column mb1">
 	    			<input id="profile_ko" class="p1 h5 rounded border-none" type="text" readonly value="POE계정명을 입력하세요">
@@ -124,7 +126,7 @@
 					var poe_nm = $('#poe_nm').val();
 					var poe_ch = $('#poe_ch').val();
 					if(!poe_nm.trim() || !poe_ch.trim()) return;
-					
+
 					var req = $.post(cors('http://poe-profile.info/api/getPoBCode'), { account: poe_nm, char: poe_ch });
 					req.done(function(data) {
 						$('#pob').val(data);
@@ -134,6 +136,8 @@
 			function update() {
 				var poe_nm = $('#poe_nm').val();
 				var poe_ch = $('#poe_ch').val();
+				var poe_privacy = 'https://poe.game.daum.net/account/view-profile/' + poe_nm + '/privacy';
+				$('#poe_privacy').attr('href', poe_privacy).text(poe_privacy);
 				$('#profile_en').val('https://exile.site/en/' + poe_nm + '/' + poe_ch);
 				$('#profile_ko').val('https://exile.site/ko/' + poe_nm + '/' + poe_ch);
 				pob();
